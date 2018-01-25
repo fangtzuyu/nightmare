@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>公會戰減攻防倒數</title>
+  <meta name="google-site-verification" content="3k9RFFV9mK-NvTBzdK1_xEAQ6LKfVBbwpu3joGn-SJ0" />
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link href="style.css?v19" rel="stylesheet" />
+  <script src="http://code.jquery.com/jquery-1.6.3.min.js" type="text/javascript"></script>
+</head>
+<body>
+  <div id="wrap">
+    <div id="header">
+      <h1>召喚獸倒數計時</h1>
+      <h3>按下召喚獸圖片立即倒數</h3>
+    </div>
+
+<div class="row" >
+  <div class="col-sm-2">
+    <img src="img/CardS1138.png"/ id="ok-button" onclick="timecount(0,0,50); return false;">
+    <h3>減攻</h3>
+  </div>
+
+  <div class="col-sm-2">
+    <img src="img/CardS1137.png"/ id="ok-button" onclick="timecount(0,1,0); return false;">
+    <h3>減攻</h3>
+  </div>
+
+  <div class="col-sm-2">
+    <img src="img/CardS1028.png"/ id="ok-button" onclick="timecount(0,0,50); return false;">
+    <h3>減攻</h3>
+  </div>
+
+  <div class="col-sm-2">
+    <img src="img/CardS1027.png"/ id="ok-button" onclick="timecount(0,1,0); return false;">
+    <h3>減攻</h3>
+  </div>
+
+  <div class="col-sm-2">
+    <img src="img/CardS1174.png"/ id="ok-button" onclick="timecount(0,0,50); return false;">
+    <h3>減防</h3>
+  </div>
+
+  <div class="col-sm-2">
+    <img src="img/CardS1173.png"/ id="ok-button" onclick="timecount(0,1,0); return false;">
+    <h3>減防</h3>
+  </div>
+
+  <div class="col-sm-2">
+    <img src="img/CardS1451.png"/ id="ok-button" onclick="timecount(0,0,50); return false;">
+    <h3>減物攻</h3>
+  </div>
+
+  <div class="col-sm-2">
+    <img src="img/CardS1450.png"/ id="ok-button" onclick="timecount(0,1,0); return false;">
+    <h3>減物攻</h3>
+  </div>
+
+</div>
+<!-- row end -->
+
+
+    <div id="progressSection" style="display:none; overflow:hidden;">
+      <div id="progressBar" style="width:0px;"></div>
+      <div id="progressText"></div>
+    <div id="cancelTimingBtn"><a class="canceltext" href="/" onclick="cancelTiming(); return false;">取消倒數</a></div>
+    </div>
+
+  </div>
+
+
+  <script>
+    var $j=jQuery.noConflict();
+  </script>
+  <script src="soundmanager2.js"></script>
+  <script src="js/jquery.cookies.js"></script>
+  <script src="js/core.js"></script>
+</body>
+</html>

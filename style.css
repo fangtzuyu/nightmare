@@ -1,0 +1,191 @@
+html, body, div, h1, h2, h3, ul, ol, dl, li, dt, dd, p, blockquote, pre, form, table, th, td { margin: 0; padding: 0; }
+html {overflow:auto;}
+img {border: none; }
+pre {overflow:auto; width:90%; }
+
+body {
+  font: 14px/170% 'Microsoft YaHei', '微软雅黑', 'Lucida Grande', Geneva, Verdana, Arial, Helvetica, sans-serif;
+  min-width:920px;
+  color: #FFFFFF;
+  margin: 0;  padding: 0;
+  background:#038A81;
+}
+a, a:visited, a:active {
+  text-decoration:none;
+  border:none;
+  outline: none;
+  -webkit-transition:all .5s;
+  -o-transition:all .5s ;
+  -moz-transition:all .5s;
+}
+a:hover {
+  text-decoration:none;
+}
+h1, h2, h3 {
+  font-family: 'Microsoft YaHei', '微软雅黑', 'Trebuchet MS', Helvetica, Tahoma, Arial, Sans-serif;
+}
+h1 {
+  font-size: 3.0em;
+  letter-spacing: -2px;
+  padding: 15px 10px 5px 10px;
+}
+h2 {
+  font-size: 1.8em;
+  padding: 15px 10px 5px 10px;
+}
+h3 {
+  font-size: 1.3em;
+  font-weight: normal;
+  padding: 10px;
+}
+p { padding: 10px; margin: 0; }
+ul { list-style: none; }
+
+input, select, textarea {
+  margin: 5px 0;
+  font: normal 1em  'Microsoft  YaHei', '微软雅黑', Verdana, Tahoma, sans-serif;
+}
+option { padding-right: 0.5em; }
+input.button {
+  font: bold 12px   'Microsoft  YaHei', '微软雅黑', Arial, Verdana, Sans-serif;
+  height: 30px;
+  padding: 2px 3px;
+  margin-top: 8px;
+}
+#wrap { width:920px; margin:0 auto; position:relative;}
+
+#header {height:125px;}
+
+
+#progressSection {position:relative; left:150px; width:640px; height:170px;}
+#location_0 { position:relative; left:150px; width:640px;}
+
+#inputSection {
+  position:relative;
+}
+
+#switchUntil {
+  position:absolute;
+  right:652px;
+  top:16px;
+  width:39px;
+  height:33px;
+  background:url(img/switchuntil.png) no-repeat 0 0;
+  cursor:pointer;
+}
+
+.input-box {
+}
+@-webkit-keyframes bigAssButtonPulse {
+  from { background-color: #749a02; -webkit-box-shadow: 0 0 15px #333; }
+  50% { background-color: #91bd09; -webkit-box-shadow: 0 0 30px #91bd09; }
+  to { background-color: #749a02; -webkit-box-shadow: 0 0 15px #333; }
+}
+#ok-button {
+}
+#ok-button:hover{
+  -webkit-animation-name: bigAssButtonPulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+}
+#setPrompt-button {
+  height:34px;
+  width:120px;
+  cursor:pointer;
+  margin-top:5px;
+  margin-left:105px;
+}
+#promptTextSetter {
+  color:gray;
+  font-size:13px;
+}
+#promptText {
+  border:3px solid #3f82d1;
+  width:410px;
+  outline: none;
+  font: 14px/160% 'Microsoft YaHei', '微软雅黑', 'Lucida Grande', Geneva, Verdana, Arial, Helvetica, sans-serif;
+  padding:2px;
+}
+#promptTextSetter #okSetPrompt {
+  color: white;
+  padding: 3px 15px;
+  border: solid #9A9A9A 1px;
+  text-decoration:none;
+  background: #009FCC;
+  cursor:pointer;
+}
+#promptTextSetter #okSetPrompt:hover {
+  background:#7bbd07;
+}
+
+#progressBar {
+  position:absolute; z-index:1;
+  height:29px;
+  top:11px; left:12px;
+  background:white;
+  border-radius:25px;
+  _background: none;
+  _background:url(/assets/img/progress.jpg) repeat-x;
+}
+#progressText {
+  position:relative;  z-index:3; top:75px; left:-5px;
+  color:white;
+  font-size:34px; font-weight:bold; text-align:center;
+}
+#cancelTimingBtn {
+  position:relative; z-index:3;
+  background-color: #352126;
+  height:40px;
+  width:114px;
+  font-size: 25px;
+  margin: auto;
+  margin-top: 100px;
+  padding: 7px;
+  color: #A19178;
+  border-radius:15px;
+}
+#cancelTimingBtn a:hover {
+  position:relative; z-index:3;
+  height:40px;
+  width:114px;
+  font-size: 25px;
+  margin: auto;
+  margin-top: 100px;
+  color: #FFFFFF;
+}
+.canceltext {
+  text-decoration: none;
+}
+.canceltext a:hover {
+  text-decoration: none;
+}
+
+.post_wrapper .date {
+  position:relative;
+  z-index:1;
+  left:-60px;
+  height:14px;
+  font-size:.95em; padding:0px; padding-left: 70px; padding-top:25px;
+  margin-top:-28px;
+}
+#comments,#comment_form_area { padding:15px;}
+
+
+.popupContent {
+  display:none;
+  position:fixed;
+  top: 10%;
+  left: 20%;
+  width: 450px;
+  background: white;
+  z-index: 1000;
+  padding: 20px;
+  color: #333;
+}
+.col-sm-2{
+  padding:10px;
+}
+/*ie6 fixed position*/
+html{_overflow:hidden;}
+body{_height:100%; _overflow:auto;}
+.popupContent{_position:absolute;}
