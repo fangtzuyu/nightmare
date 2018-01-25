@@ -5,15 +5,15 @@ LocalLang.Need24h="设定的时间有误，请输入24小时制时间。";
 LocalLang.CannotSetTime2Now="不能将时间设定为现在。";
 LocalLang.TimeUp="时间到！";
 LocalLang.WarnText="你有正在进行的定时，离开本页将撤销此定时。";
-var $j=jQuery.noConflict();
-$j(document).ready(function(){
-  var lang = $j.cookies.get("lang");
+
+jQuery(document).ready(function(){
+  var lang = jQuery.cookies.get("lang");
   if(lang){
     selectLang(lang);
   }else{
     var d = new Date();
     d.setTime(d.getTime() + (30 * 24 * 60 * 60 * 1000));
-    $j.cookies.set("lang",window.navigator.userLanguage||window.navigator.language,{expiresAt:d});
+    jQuery.cookies.set("lang",window.navigator.userLanguage||window.navigator.language,{expiresAt:d});
   }
 });
 
@@ -27,11 +27,11 @@ var endTime;
 var isTiming=false;
 var promptText="";
 
-$j(document).ready(function(){
+jQuery(document).ready(function(){
   var url=document.location.href;
   var m=url.match(/\?[0-9]{1,}$/);
   if(m!=null){
-    $j("#min").val(String(m).replace("?",""));
+    jQuery("#min").val(String(m).replace("?",""));
     isAfter=false;
     toggleSwitchUntil();
     startTiming();
@@ -39,8 +39,8 @@ $j(document).ready(function(){
     m=url.match(/\?([0-1]?[0-9]|2[0-3]):([0-5]?[0-9])$/);
     if(m!=null){
       m=m[0];
-      $j("#hour").val(String(m).match(/([0-1]?[0-9]|2[0-3]):/)[0].replace(":",""));
-      $j("#min").val(String(m).match(/([0-5]?[0-9])$/)[0]);
+      jQuery("#hour").val(String(m).match(/([0-1]?[0-9]|2[0-3]):/)[0].replace(":",""));
+      jQuery("#min").val(String(m).match(/([0-5]?[0-9])$/)[0]);
       isAfter=true;
       toggleSwitchUntil();
       startTiming();
@@ -90,8 +90,8 @@ function timecount(hour,min,sec){
     var hh=hour;
     var mm=min;
     var ss=sec;
-    //var mm=$j("#min").val()*1;
-    //var ss=$j("#sec").val()*1;
+    //var mm=jQuery("#min").val()*1;
+    //var ss=jQuery("#sec").val()*1;
 
     if(isNaN(hh)||isNaN(mm)||isNaN(ss)){
       alert(LocalLang.NeedNum);
@@ -127,16 +127,16 @@ function timecount(hour,min,sec){
     }
     isTiming=true;
     timer=window.setInterval("refreshProgress();",200);
-    $j("#progressBar").css('width',0);
+    jQuery("#progressBar").css('width',0);
     refreshProgress();
     toggleProgressSection();
 }
 
 function startTiming(){
   if(isTiming){return;}
-  var hh=$j("#hour").val()*1;
-  var mm=$j("#min").val()*1;
-  var ss=$j("#sec").val()*1;
+  var hh=jQuery("#hour").val()*1;
+  var mm=jQuery("#min").val()*1;
+  var ss=jQuery("#sec").val()*1;
 
   if(isNaN(hh)||isNaN(mm)||isNaN(ss)){
     alert(LocalLang.NeedNum);
@@ -172,7 +172,7 @@ function startTiming(){
   }
   isTiming=true;
   timer=window.setInterval("refreshProgress();",200);
-  $j("#progressBar").css('width',0);
+  jQuery("#progressBar").css('width',0);
   refreshProgress();
   toggleProgressSection();
 }
@@ -182,7 +182,7 @@ function timeout(){
   window.clearTimeout(timer);
   isTiming=false;
   playSound();
-  $j("#progressBar").animate({width:progressWidth},200,function(){
+  jQuery("#progressBar").animate({width:progressWidth},200,function(){
   if(promptText!=""){
     if(promptText.match(/^http/)){
       window.open(promptText);
@@ -206,37 +206,37 @@ function cancelTiming(){
   toggleProgressSection();
 }
 function toggleProgressSection(){
-  $j("#progressSection").toggle("slow");
-  $j("#inputSection").toggle("slow");
+  jQuery("#progressSection").toggle("slow");
+  jQuery("#inputSection").toggle("slow");
 }
 function toggleSwitchUntil(){
   if(isAfter){
     isAfter=false;
-    $j("#switchUntil").stop(true,true).animate({width:94},300);
+    jQuery("#switchUntil").stop(true,true).animate({width:94},300);
   }else{
     isAfter=true;
-    $j("#switchUntil").stop(true,true).animate({width:39},300);
+    jQuery("#switchUntil").stop(true,true).animate({width:39},300);
   }
 }
 function toggleSwitchNoLoop(){
   if(isLoop){
     isLoop=false;
-    $j("#switchNoLoop").stop(true,true).animate({width:94},300);
+    jQuery("#switchNoLoop").stop(true,true).animate({width:94},300);
   }else{
     isLoop=true;
-    $j("#switchNoLoop").stop(true,true).animate({width:39},300);
+    jQuery("#switchNoLoop").stop(true,true).animate({width:39},300);
   }
 }
 function popPromptTextSetter(){
-  $j("#mask").fadeTo("normal","0.8");
-  $j("#promptTextSetter").show("fast");
+  jQuery("#mask").fadeTo("normal","0.8");
+  jQuery("#promptTextSetter").show("fast");
 }
 function hidePromptTextSetter(){
-  $j(".popupContent").hide();
-  $j("#mask").fadeTo("normal","0",function(){$j("#mask").hide();});
+  jQuery(".popupContent").hide();
+  jQuery("#mask").fadeTo("normal","0",function(){jQuery("#mask").hide();});
 }
 function setPrompt(){
-  promptText=$j("#promptText").val()+"";
+  promptText=jQuery("#promptText").val()+"";
   hidePromptTextSetter();
 }
 function refreshProgress(){
@@ -244,8 +244,8 @@ function refreshProgress(){
   var sec=Math.round((endTime-now)/1000);
   var progressText=Math.floor(sec/3600)+":"+Math.floor((sec%3600)/60)+":"+Math.floor(sec%60);
   document.title=progressText+" - "+siteTitle;
-  $j("#progressText").text(progressText);
-  $j("#progressBar").animate({width:(1-(sec/totalSec))*progressWidth},{queue:false,duration:200});
+  jQuery("#progressText").text(progressText);
+  jQuery("#progressBar").animate({width:(1-(sec/totalSec))*progressWidth},{queue:false,duration:200});
   if(sec<=0){
     timeout();
   }
