@@ -5,7 +5,7 @@ LocalLang.Need24h="设定的时间有误，请输入24小时制时间。";
 LocalLang.CannotSetTime2Now="不能将时间设定为现在。";
 LocalLang.TimeUp="时间到！";
 LocalLang.WarnText="你有正在进行的定时，离开本页将撤销此定时。";
-
+var $j=jQuery.noConflict();
 $j(document).ready(function(){
   var lang = $j.cookies.get("lang");
   if(lang){
